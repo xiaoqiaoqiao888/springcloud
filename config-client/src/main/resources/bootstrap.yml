@@ -1,0 +1,26 @@
+server.port: 8768
+spring:
+  application:
+  # 要与配置文件里面的文件名一致
+    name: config-client
+  cloud:
+    config:
+      uri: http://localhost:8767
+      label: master
+      profile: dev
+      discovery.enabled: true
+      discovery.service-id: config-server
+management.security.enabled: false 
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+info:
+  application.name: ${spring.application.name}
+  company.name: www.camelot.com
+  build: 
+    version: $project.version$
+    artifactId: $project.artifactId$      

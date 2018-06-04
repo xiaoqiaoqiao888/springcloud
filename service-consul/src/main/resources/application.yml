@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: ${management.contextPath}/health
+        healthCheckInterval: 15s
+        instance-id: service-consul
+  application:
+    name: service-consul
+management.contextPath: /consul    
+server:
+  port: 8776

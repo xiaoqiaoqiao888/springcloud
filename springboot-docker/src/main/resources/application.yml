@@ -1,0 +1,13 @@
+server:
+  port: 8080
+eureka:
+  client:
+    register-with-eureka: false #是否注册到eureka 
+    fetch-registry: false #是否获取注册信息  
+    serviceUrl: #eureka的服务地址，/eureka是固定的 
+      defaultZone: http://localhost:${server.port}/eureka/
+  instance:
+    prefer-ip-address: true
+  server: 
+    enable-self-preservation: false #为了便于测试，取消eureka的保护模式，如果启动的话，比如api提供者关闭了，但是eureka仍然保留信息   
+      

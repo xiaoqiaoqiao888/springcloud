@@ -1,0 +1,27 @@
+server: 
+  port: 8767
+spring: 
+  application: 
+    name: config-server
+  cloud: 
+    config: 
+      server: 
+        git: 
+          uri: https://github.com/xiaoqiaoqiao888/springcloudConfig.git/
+          searchPaths: repository
+#          username: #公开仓库可以不用写
+#          password: #公开仓库可以不用写
+      label: master
+management.security.enabled: false      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+info:
+  application.name: ${spring.application.name}
+  company.name: www.camelot.com
+  build: 
+    version: $project.version$
+    artifactId: $project.artifactId$
