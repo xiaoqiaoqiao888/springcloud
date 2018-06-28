@@ -15,9 +15,33 @@ zuul:
     api-b:
       path: /api-b/**
       serviceId: service-feign
+  max:
+    host:
+      connections: 500
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
 info:
   application.name: ${spring.application.name}
   company.name: www.camelot.com
   build: 
     version: $project.version$
-    artifactId: $project.artifactId$      
+    artifactId: $project.artifactId$ 
+      
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  eureka:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000      
