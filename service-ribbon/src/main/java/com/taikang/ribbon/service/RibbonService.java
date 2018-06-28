@@ -17,6 +17,6 @@ public class RibbonService {
     }
 
     public String clientError(String name) {
-        return "hi, " + name + " sorry error";
+        return "hi, " + name + " sorry ribbon error";
     }
 }
