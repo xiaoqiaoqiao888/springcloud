@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class EurekaClientApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(EurekaClientApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaClientApplication.class, args);
+	}
 
-    @Value("${server.port}")
-    String port;
+	@Value("${server.port}")
+	String port;
 
-    @RequestMapping("/hi")
-    public String home(@RequestParam String name) {
-        return "hi " + name + ",I come from port:" + port;
-    }
+	@RequestMapping("/hi")
+	public String home(@RequestParam String name) {
+		System.out.println("hi " + name + ",I come from port:" + port);
+		return "hi " + name + ",I come from port:" + port;
+	}
 }
