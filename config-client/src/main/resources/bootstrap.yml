@@ -1,7 +1,7 @@
 server.port: 8768
 spring:
   application:
-  # 要与配置文件里面的文件名一致
+  # 要与仓库配置文件的文件名一致
     name: config-client
   cloud:
     config:
