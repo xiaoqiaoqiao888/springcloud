@@ -12,4 +12,7 @@ info:
   company.name: www.camelot.com
   build: 
     version: $project.version$
-    artifactId: $project.artifactId$    
+    artifactId: $project.artifactId$  
+self.ribbon-rule: 
+  ribbon: 
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule  
