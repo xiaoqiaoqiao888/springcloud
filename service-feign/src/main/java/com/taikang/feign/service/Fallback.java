@@ -3,10 +3,10 @@ package com.taikang.feign.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FeignServiceImpl implements FeignService {
+public class Fallback implements FeignService {
 
     @Override
-    public String helloFeign(String name) {
+    public String hello(String name) {
 
         return "sorry, " + name + " from feign error.";
     }

@@ -14,6 +14,6 @@ public class FeignController {
 
     @RequestMapping("/hi")
     public String ribbonController(@RequestParam String name) {
-        return feignService.helloFeign(name);
+        return feignService.hello(name);
     }
 }
