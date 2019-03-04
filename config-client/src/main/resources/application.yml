@@ -1,3 +1,4 @@
+#消息总线(Spring Cloud Bus)
 spring.rabbitmq.host: localhost
 spring.rabbitmq.port: 5672
 spring.rabbitmq.username: guest
