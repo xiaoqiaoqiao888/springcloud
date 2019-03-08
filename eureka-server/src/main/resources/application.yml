@@ -3,15 +3,21 @@ server:
 spring: 
   application:
     name: eureka-server
+security: # 开启安全控制
+  basic: 
+    enabled: true
+  user: 
+    name: root # 用户名
+    password: root  # 密码
 eureka:
   client:
     register-with-eureka: false #是否注册到eureka 
     fetch-registry: false #是否获取注册信息  
     serviceUrl: #eureka的服务地址，/eureka是固定的 
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://${security.user.name}:${security.user.password}@localhost:${server.port}/eureka/
   server: 
-    enable-self-preservation: true #为了便于测试，取消eureka的保护模式，如果启动的话，比如api提供者关闭了，但是eureka仍然保留信息   
-
+    enable-self-preservation: true # 默认开启 ，为了便于测试，取消eureka的保护模式，如果启动的话，比如api提供者关闭了，但是eureka仍然保留信息   
+    eviction-interval-timer-in-ms: 4000
 #eureka-server集群配置
 #spring: 
 #  application:
