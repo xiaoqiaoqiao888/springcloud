@@ -28,9 +28,15 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!-- /env /health 监控信息 如果要看到需要配置#management: security: enabled: false -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- 开启HTTP basic认证 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -45,7 +51,7 @@
 		</dependencies>
 	</dependencyManagement>
 	<build>
-	<finalName>eureka-client01</finalName>
+		<finalName>eureka-client01</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
