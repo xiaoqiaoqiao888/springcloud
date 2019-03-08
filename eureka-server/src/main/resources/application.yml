@@ -1,46 +1,28 @@
-server:
-  port: 8761
-spring: 
-  application:
-    name: eureka-server
-security: # 开启安全控制
-  basic: 
-    enabled: true
-  user: 
-    name: root # 用户名
-    password: root  # 密码
-eureka:
-  client:
-    register-with-eureka: false #是否注册到eureka 
-    fetch-registry: false #是否获取注册信息  
-    serviceUrl: #eureka的服务地址，/eureka是固定的 
-      defaultZone: http://${security.user.name}:${security.user.password}@localhost:${server.port}/eureka/
-  server: 
-    enable-self-preservation: true # 默认开启 ，为了便于测试，取消eureka的保护模式，如果启动的话，比如api提供者关闭了，但是eureka仍然保留信息   
-    eviction-interval-timer-in-ms: 4000
+server.port: 8761
+spring.application.name: eureka-server
+
+#security.basic.enabled: true  # 开启安全控制
+#security.user.name: root  # 用户名
+#security.user.password: root  # 密码
+    
+eureka.client.register-with-eureka: false #是否注册到eureka 
+eureka.client.fetch-registry: false #是否获取注册信息  
+eureka.client.serviceUrl.defaultZone: http://localhost:${server.port}/eureka/
+#eureka.client.serviceUrl.defaultZone:  http://${security.user.name}:${security.user.password}@localhost:${server.port}/eureka/
+eureka.server.enable-self-preservation: true # 默认开启 ，为了便于测试，取消eureka的保护模式，如果启动的话，比如api提供者关闭了，但是eureka仍然保留信息   
+eureka.server.eviction-interval-timer-in-ms: 4000
+
 #eureka-server集群配置
-#spring: 
-#  application:
-#    name: eureka-server
+#spring.application.name: eureka-server
 #---
-#spring: 
-#  profiles: peer1
-#server:
-#  port: 8761
-#eureka:
-#  instance:
-#    hostname: peer1
-#  client:
-#    serviceUrl:
-#      defaultZone: http://peer2:8000/eureka/
+#spring.profiles: peer1
+#server.port: 8761
+#
+#eureka.instance.hostname: peer1
+#eureka.client.serviceUrl.defaultZone: http://peer2:8000/eureka/
 #---
-#spring: 
-#  profiles: peer2
-#server:
-#  port: 8000
-#eureka:
-#  instance:
-#    hostname: peer2
-#  client:
-#    serviceUrl:
-#      defaultZone: http://peer1:8761/eureka/     
+#spring.profiles: peer2
+#server.port: 8000
+#
+#eureka.instance.hostname: peer2
+#eureka.client.serviceUrl.defaultZone: http://peer1:8761/eureka/
