@@ -1,35 +1,21 @@
-spring:
-  application:
-    name: eureka-client
-security: # 开启安全控制
-  basic: 
-    enabled: true
-  user: 
-    name: admin
-    password: admin  
-server:
-  port: 8763
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://root:root@localhost:8761/eureka/
-    eurekaServerTotalConnections: 2 #允许多少个server连接client
-  instance:
-    prefer-ip-address: true
-#    lease-renewal-interval-in-seconds: 1 //租期更新时间间隔（默认30秒）
-#    lease-expiration-duration-in-seconds: 2  //租期到期时间（默认90秒）
-  healthcheck: 
-    enabled: true  #//开启健康检查（需要spring-boot-starter-actuator依赖）
-info:
-  application.name: ${spring.application.name}
-  company.name: www.rails.com
-  build: 
-    version: $project.version$
-    artifactId: $project.artifactId$
-#management: 
-#  security: 
-#    enabled: false#指定访问信息不进行用户验证 /env  /beans都可以看到
-management: 
-  security: 
-    enabled: true
-    role: SUPERUSER
+server.port: 8763
+spring.application.name: eureka-client
+
+#security.basic.enabled: true  # 开启安全控制
+#security.user.name: root  # 用户名
+#security.user.password: root  # 密码
+
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+eureka.client.eurekaServerTotalConnections: 2 #允许多少个server连接client   
+eureka.instance.prefer-ip-address: true
+#eureka.instance.lease-renewal-interval-in-seconds: 1 //租期更新时间间隔（默认30秒）
+#eureka.instance.lease-expiration-duration-in-seconds: 2  //租期到期时间（默认90秒）
+eureka.healthcheck.enabled: true  #//开启健康检查（需要spring-boot-starter-actuator依赖）
+
+info.application.name: ${spring.application.name}
+info.company.name: www.rails.com
+info.build.version: $project.version$
+info.build.artifactId: $project.artifactId$
+    
+management.security.enabled: true  #指定访问信息不进行用户验证 /env  /beans都可以看到
+management.security.role: SUPERUSER
