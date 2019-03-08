@@ -1,17 +1,35 @@
 spring:
   application:
     name: eureka-client
+security: # 开启安全控制
+  basic: 
+    enabled: true
+  user: 
+    name: admin
+    password: admin  
 server:
   port: 8762
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://root:root@localhost:8761/eureka/
+    eurekaServerTotalConnections: 2 #允许多少个server连接client   
   instance:
     prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 1 //租期更新时间间隔（默认30秒）
+#    lease-expiration-duration-in-seconds: 2  //租期到期时间（默认90秒）
+  healthcheck: 
+    enabled: true  #//开启健康检查（需要spring-boot-starter-actuator依赖）
 info:
   application.name: ${spring.application.name}
-  company.name: www.camelot.com
+  company.name: www.rails.com
   build: 
     version: $project.version$
     artifactId: $project.artifactId$
+#management: 
+#  security: 
+#    enabled: false#指定访问信息不进行用户验证 /env  /beans都可以看到
+management: 
+  security: 
+    enabled: true
+    role: SUPERUSER
