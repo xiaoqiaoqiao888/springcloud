@@ -13,4 +13,4 @@ info:
   build: 
     version: $project.version$
     artifactId: $project.artifactId$  
-feign.hystrix.enabled: true  #开启熔断器功能      
+feign.hystrix.enabled: true  #开启熔断器功能    D版本之后默认关闭hystrix  
