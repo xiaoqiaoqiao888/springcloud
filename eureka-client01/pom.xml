@@ -69,6 +69,11 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<!--Package as an executable jar -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 </project>
