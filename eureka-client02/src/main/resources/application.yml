@@ -10,7 +10,7 @@ eureka.client.eurekaServerTotalConnections: 2 #允许多少个server连接client
 eureka.instance.prefer-ip-address: true
 #eureka.instance.lease-renewal-interval-in-seconds: 1 //租期更新时间间隔（默认30秒）
 #eureka.instance.lease-expiration-duration-in-seconds: 2  //租期到期时间（默认90秒）
-eureka.healthcheck.enabled: true  #//开启健康检查（需要spring-boot-starter-actuator依赖）
+eureka.client.healthcheck.enabled:  false  #//开启健康检查（需要spring-boot-starter-actuator依赖）
 
 info.application.name: ${spring.application.name}
 info.company.name: www.rails.com
