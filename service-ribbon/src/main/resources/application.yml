@@ -11,11 +11,14 @@ eureka.instance.prefer-ip-address: true
 #eureka.instance.lease-renewal-interval-in-seconds: 1 //租期更新时间间隔（默认30秒）
 #eureka.instance.lease-expiration-duration-in-seconds: 2  //租期到期时间（默认90秒）
 eureka.healthcheck.enabled: true  #//开启健康检查（需要spring-boot-starter-actuator依赖）
-
+ribbon.eureka.enabled: false #将明确禁用在Ribbon中使用Eureka
 info.application.name: ${spring.application.name}
 info.company.name: www.rails.com
 info.build.version: $project.version$
 info.build.artifactId: $project.artifactId$
  
-self.ribbon-rule.ribbon.NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#self.ribbon-rule.ribbon.NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 #hystrix.command.default.execution.timeout.enabled: false 
+
+management.security.enabled: false  #指定访问信息不进行用户验证 /env  /beans都可以看到
+management.security.role: SUPERUSER

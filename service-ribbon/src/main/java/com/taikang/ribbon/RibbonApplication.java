@@ -10,7 +10,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-import com.taikang.ribbon.config.RibbonConfig;
+import com.taikang.config.RibbonConfig;
 
 /**
  * 
@@ -22,15 +22,15 @@ import com.taikang.ribbon.config.RibbonConfig;
 @EnableDiscoveryClient
 @SpringBootApplication
 @EnableHystrix
-@RibbonClient(name = "self.ribbon-rule", configuration = RibbonConfig.class)
+@RibbonClient(name = "eureka-client", configuration = RibbonConfig.class)
 public class RibbonApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(RibbonApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(RibbonApplication.class, args);
+	}
 
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+	@Bean
+	@LoadBalanced
+	RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 }
