@@ -1,5 +1,8 @@
 package com.taikang.eureka.client;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = {9, 7, 6, 22,5,4, 3, 2, 1};
@@ -8,7 +11,6 @@ public class BubbleSort {
             System.out.print(i + " ");
         }
     }
-
     public static void bubbleSort(int[] arr) {
         int n = arr.length;
         boolean swapped;
